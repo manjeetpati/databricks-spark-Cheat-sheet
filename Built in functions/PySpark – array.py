@@ -1,7 +1,13 @@
 # Databricks notebook source
+# /// script
+# [tool.databricks.environment]
+# environment_version = "2"
+# ///
+from pyspark.sql.types import StringType, ArrayType
 
 # COMMAND ----------
-from pyspark.sql.types import StringType, ArrayType
+
+
 arrayCol = ArrayType(StringType(),False)
 
 
@@ -42,8 +48,7 @@ df.show()
 #|Robert,,Williams|      [CSharp, VB]|[Spark, Python]|          UT|           NV|
 #+----------------+------------------+---------------+------------+-------------+
 
-
-
+# COMMAND ----------
 
 from pyspark.sql.functions import explode
 df.select(df.name,explode(df.languagesAtSchool)).show()
@@ -61,7 +66,7 @@ df.select(df.name,explode(df.languagesAtSchool)).show()
 #|Robert,,Williams|    VB|
 #+----------------+------+
 
-
+# COMMAND ----------
 
 from pyspark.sql.functions import split
 df.select(split(df.name,",").alias("nameAsArray")).show()
@@ -74,6 +79,7 @@ df.select(split(df.name,",").alias("nameAsArray")).show()
 #|[Robert, , Williams]|
 #+--------------------+
 
+# COMMAND ----------
 
 from pyspark.sql.functions import array
 df.select(df.name,array(df.currentState,df.previousState).alias("States")).show()
@@ -85,7 +91,7 @@ df.select(df.name,array(df.currentState,df.previousState).alias("States")).show(
 #|Robert,,Williams|[UT, NV]|
 #+----------------+--------+
 
-
+# COMMAND ----------
 
 from pyspark.sql.functions import array_contains
 df.select(df.name,array_contains(df.languagesAtSchool,"Java")

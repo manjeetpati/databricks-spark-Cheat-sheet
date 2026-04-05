@@ -1,7 +1,9 @@
-# Databricks notebook source
+# Databricks notebook source 
+
+from pyspark.sql.types import StringType, ArrayType
 
 # COMMAND ----------
-from pyspark.sql.types import StringType, ArrayType
+
 arrayCol = ArrayType(StringType(),False)
 
 

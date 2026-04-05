@@ -1,3 +1,6 @@
+﻿# Databricks notebook source
+
+# COMMAND ----------
 # PySpark Date and Timestamp Functions are supported on DataFrame and SQL queries and they work similarly to traditional SQL, Date and Time are very important if you are using PySpark for ETL. Most of all these functions accept input as, Date type, Timestamp type, or String. If a String used, it should be in a default format that can be cast to date.
 # 
 # DateType default format is yyyy-MM-dd 
@@ -5,7 +8,7 @@
 # Returns null if the input is a string that can not be cast to Date or Timestamp.
 # PySpark SQL provides several Date & Timestamp functions hence keep an eye on and understand these. Always you should choose these functions instead of writing your own functions (UDF) as these functions are compile-time safe, handles null, and perform better when compared to PySpark UDF. If your PySpark application is critical on performance try to avoid using custom UDF at all costs as these are not guarantee performance.
 # 
-# For readable purposes, I’ve grouped these functions into the following groups.
+# For readable purposes, Iâ€™ve grouped these functions into the following groups.
 # 
 # Date Functions
 # Timestamp Functions
@@ -208,9 +211,9 @@ df.select(col("input"),
 # |2021-03-01|        2|         1|       60|
 # +----------+---------+----------+---------+
 # current_timestamp()
-# Following are the Timestamp Functions that you can use on SQL and on DataFrame. Let’s learn these with examples.
+# Following are the Timestamp Functions that you can use on SQL and on DataFrame. Letâ€™s learn these with examples.
 # 
-# Let’s create a test data.
+# Letâ€™s create a test data.
 
 
 data=[["1","02-01-2020 11 01 19 06"],["2","03-01-2019 12 01 19 406"],["3","03-01-2021 12 01 19 406"]]

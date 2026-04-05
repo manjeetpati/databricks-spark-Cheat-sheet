@@ -1,3 +1,6 @@
+﻿# Databricks notebook source
+
+# COMMAND ----------
 
 import pyspark
 from pyspark.sql import SparkSession
@@ -277,7 +280,7 @@ df.withColumn("lead",lead("salary",2).over(windowSpec)) \
 # |         Jeff| Marketing|  3000|null|
 # +-------------+----------+------+----+
 # 4. PySpark Window Aggregate Functions
-# In this section, I will explain how to calculate sum, min, max for each department using PySpark SQL Aggregate window functions and WindowSpec. When working with Aggregate functions, we don’t need to use order by clause.
+# In this section, I will explain how to calculate sum, min, max for each department using PySpark SQL Aggregate window functions and WindowSpec. When working with Aggregate functions, we donâ€™t need to use order by clause.
 
 
 windowSpecAgg  = Window.partitionBy("department")

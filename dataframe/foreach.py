@@ -1,4 +1,7 @@
-# PySpark foreach() is an action operation that is available in RDD, DataFram to iterate/loop over each element in the DataFrmae, It is similar to for with advanced concepts. This is different than other actions as foreach() function doesn’t return a value instead it executes the input function on each element of an RDD, DataFrame
+﻿# Databricks notebook source
+
+# COMMAND ----------
+# PySpark foreach() is an action operation that is available in RDD, DataFram to iterate/loop over each element in the DataFrmae, It is similar to for with advanced concepts. This is different than other actions as foreach() function doesnâ€™t return a value instead it executes the input function on each element of an RDD, DataFrame
 # Import
 from pyspark.sql import SparkSession
 

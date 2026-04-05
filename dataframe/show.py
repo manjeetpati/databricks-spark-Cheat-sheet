@@ -1,3 +1,6 @@
+﻿# Databricks notebook source
+
+# COMMAND ----------
 
 # Default - displays 20 rows and 
 # 20 charactes from column value 

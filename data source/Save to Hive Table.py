@@ -1,3 +1,6 @@
+﻿# Databricks notebook source
+
+# COMMAND ----------
 
 #!/usr/bin/env python3
 

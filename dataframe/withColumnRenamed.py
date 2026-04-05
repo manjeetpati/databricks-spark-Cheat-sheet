@@ -1,3 +1,6 @@
+﻿# Databricks notebook source
+
+# COMMAND ----------
 
 dataDF = [(('James','','Smith'),'1991-04-01','M',3000),
   (('Michael','Rose',''),'2000-05-19','M',4000),
@@ -33,9 +36,9 @@ df.printSchema()
 # # 
 # # 
 # # withColumnRenamed(existingName, newNam)
-# # existingName – The existing column name you want to change
+# # existingName â€“ The existing column name you want to change
 # # 
-# # newName – New name of the column
+# # newName â€“ New name of the column
 # # 
 # # Returns a new DataFrame with a column renamed.
 # # 
@@ -44,7 +47,7 @@ df.printSchema()
 
 df.withColumnRenamed("dob","DateOfBirth").printSchema()
 
-# PySpark withColumnRenamed – To rename multiple columns
+# PySpark withColumnRenamed â€“ To rename multiple columns
 
 df2 = df.withColumnRenamed("dob","DateOfBirth") \
     .withColumnRenamed("salary","salary_amount")
@@ -82,7 +85,7 @@ df4.printSchema()
 
 
 
-# Using toDF() – To change all columns in a PySpark DataFrame
+# Using toDF() â€“ To change all columns in a PySpark DataFrame
 # When we have data in a flat structure (without nested) , use toDF() with a new schema to change all column names.
 
 

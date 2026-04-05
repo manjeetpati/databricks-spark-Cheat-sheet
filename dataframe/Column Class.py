@@ -1,3 +1,6 @@
+﻿# Databricks notebook source
+
+# COMMAND ----------
 # 1. Create Column Class Object
 # One of the simplest ways to create a Column class object is by using PySpark lit() SQL function, this takes a literal value and returns a Column object.
 
@@ -65,7 +68,7 @@ df.select(df.col2 > df.col3).show()
 df.select(df.col2 < df.col3).show()
 df.select(df.col2 == df.col3).show()
 # 3. PySpark Column Functions
-# Let’s see some of the most used Column Functions, on below table, I have grouped related functions together to make it easy, click on the link for examples.
+# Letâ€™s see some of the most used Column Functions, on below table, I have grouped related functions together to make it easy, click on the link for examples.
 
 # # COLUMN FUNCTION	FUNCTION DESCRIPTION
 # # alias(*alias, **kwargs)
@@ -75,7 +78,7 @@ df.select(df.col2 == df.col3).show()
 # # asc_nulls_first()
 # # asc_nulls_last()	Returns ascending order of the column.
 # # asc_nulls_first() Returns null values first then non-null values.
-# # asc_nulls_last() – Returns null values after non-null values.
+# # asc_nulls_last() â€“ Returns null values after non-null values.
 # # astype(dataType)
 # # cast(dataType)	Used to cast the data type to another type.
 # # astype() returns same as cast().
@@ -88,7 +91,7 @@ df.select(df.col2 == df.col3).show()
 # # desc_nulls_first()
 # # desc_nulls_last()	Returns descending order of the column.
 # # desc_nulls_first() -null values appear before non-null values.
-# # desc_nulls_last() – null values appear after non-null values.
+# # desc_nulls_last() â€“ null values appear after non-null values.
 # # startswith(other)
 # # endswith(other)	String starts with. Returns boolean expression
 # # String ends with. Returns boolean expression
@@ -96,8 +99,8 @@ df.select(df.col2 == df.col3).show()
 # # getField(name)	Returns a field by name in a StructField and by key in Map.
 # # getItem(key)	Returns a values from Map/Key at the provided position.
 # # isNotNull()
-# # isNull()	isNotNull() – Returns True if the current expression is NOT null.
-# # isNull() – Returns True if the current expression is null.
+# # isNull()	isNotNull() â€“ Returns True if the current expression is NOT null.
+# # isNull() â€“ Returns True if the current expression is null.
 # # isin(*cols)	A boolean expression that is evaluated to true if the value of this expression is contained by the evaluated values of the arguments.
 # # like(other)
 # # rlike(other)	Similar to SQL like expression.
@@ -109,7 +112,7 @@ df.select(df.col2 == df.col3).show()
 # # dropFields(*fieldNames)	Used to drops fields in StructType by name.
 # # withField(fieldName, col)	An expression that adds/replaces a field in StructType by name.
 # # 4. PySpark Column Functions Examples
-# # Let’s create a simple DataFrame to work with PySpark SQL Column examples. For most of the examples below, I will be referring DataFrame object name (df.) to get the column.
+# # Letâ€™s create a simple DataFrame to work with PySpark SQL Column examples. For most of the examples below, I will be referring DataFrame object name (df.) to get the column.
 
 
 data=[("James","Bond","100",None),
@@ -118,7 +121,7 @@ data=[("James","Bond","100",None),
       ("Tom Brand",None,"400",'M')] 
 columns=["fname","lname","id","gender"]
 df=spark.createDataFrame(data,columns)
-# 4.1 alias() – Set’s name to Column
+# 4.1 alias() â€“ Setâ€™s name to Column
 # On below example df.fname refers to Column object and alias() is a function of the Column to give alternate name. Here, fname column has been changed to first_name & lname to last_name.
 # 
 # On second example I have use PySpark expr() function to concatenate columns and named column as fullName.
@@ -133,47 +136,47 @@ df.select(df.fname.alias("first_name"), \
 #Another example
 df.select(expr(" fname ||','|| lname").alias("fullName") \
    ).show()
-# 4.2 asc() & desc() – Sort the DataFrame columns by Ascending or Descending order.
+# 4.2 asc() & desc() â€“ Sort the DataFrame columns by Ascending or Descending order.
 
 #asc, desc to sort ascending and descending order repsectively.
 df.sort(df.fname.asc()).show()
 df.sort(df.fname.desc()).show()
-# 4.3 cast() & astype() – Used to convert the data Type.
+# 4.3 cast() & astype() â€“ Used to convert the data Type.
 
 #cast
 df.select(df.fname,df.id.cast("int")).printSchema()
-# 4.4 between() – Returns a Boolean expression when a column values in between lower and upper bound.
+# 4.4 between() â€“ Returns a Boolean expression when a column values in between lower and upper bound.
 
 #between
 df.filter(df.id.between(100,300)).show()
-# 4.5 contains() – Checks if a DataFrame column value contains a a value specified in this function.
+# 4.5 contains() â€“ Checks if a DataFrame column value contains a a value specified in this function.
 
 #contains
 df.filter(df.fname.contains("Cruise")).show()
-# 4.6 startswith() & endswith() – Checks if the value of the DataFrame Column starts and ends with a String respectively.
+# 4.6 startswith() & endswith() â€“ Checks if the value of the DataFrame Column starts and ends with a String respectively.
 
 #startswith, endswith()
 df.filter(df.fname.startswith("T")).show()
 df.filter(df.fname.endswith("Cruise")).show()
-#4.7 eqNullSafe() –
+#4.7 eqNullSafe() â€“
 
 
-# 4.8 isNull & isNotNull() – Checks if the DataFrame column has NULL or non NULL values.
+# 4.8 isNull & isNotNull() â€“ Checks if the DataFrame column has NULL or non NULL values.
 # Refer to
 
 
 #isNull & isNotNull
 df.filter(df.lname.isNull()).show()
 df.filter(df.lname.isNotNull()).show()
-# 4.9 like() & rlike() – Similar to SQL LIKE expression
+# 4.9 like() & rlike() â€“ Similar to SQL LIKE expression
 
 #like , rlike
 df.select(df.fname,df.lname,df.id) \
   .filter(df.fname.like("%om")) 
-# 4.10 substr() – Returns a Column after getting sub string from the Column
+# 4.10 substr() â€“ Returns a Column after getting sub string from the Column
 
 df.select(df.fname.substr(1,2).alias("substr")).show()
-# 4.11 when() & otherwise() – It is similar to SQL Case When, executes sequence of expressions until it matches the condition and returns a value when match.
+# 4.11 when() & otherwise() â€“ It is similar to SQL Case When, executes sequence of expressions until it matches the condition and returns a value when match.
 
 #when & otherwise
 from pyspark.sql.functions import when
@@ -182,14 +185,14 @@ df.select(df.fname,df.lname,when(df.gender=="M","Male") \
               .when(df.gender==None ,"") \
               .otherwise(df.gender).alias("new_gender") \
     ).show()
-# 4.12 isin() – Check if value presents in a List.
+# 4.12 isin() â€“ Check if value presents in a List.
 
 #isin
 li=["100","200"]
 df.select(df.fname,df.lname,df.id) \
   .filter(df.id.isin(li)) \
   .show()
-# 4.13 getField() – To get the value by key from MapType column and by stuct child name from StructType column
+# 4.13 getField() â€“ To get the value by key from MapType column and by stuct child name from StructType column
 # Rest of the below functions operates on List, Map & Struct data structures hence to demonstrate these I will use another DataFrame with list, map and struct columns. For more explanation how to use Arrays refer to PySpark ArrayType Column on DataFrame Examples & for map refer to PySpark MapType Examples
 
 
@@ -228,7 +231,7 @@ df.select(df.properties.getField("hair")).show()
 
 #getField from Struct
 df.select(df.name.getField("fname")).show()
-# 4.14 getItem() – To get the value by index from MapType or ArrayTupe & ny key for MapType column.
+# 4.14 getItem() â€“ To get the value by index from MapType or ArrayTupe & ny key for MapType column.
 
 #getItem() used with ArrayType
 df.select(df.languages.getItem(1)).show()

@@ -1,5 +1,8 @@
+﻿# Databricks notebook source
+
+# COMMAND ----------
 # PySpark Aggregate Functions Examples
-# First, let’s create a DataFrame to work with PySpark aggregate functions. All examples provided here are also available at PySpark Examples GitHub project.
+# First, letâ€™s create a DataFrame to work with PySpark aggregate functions. All examples provided here are also available at PySpark Examples GitHub project.
 
 
 simpleData = [("James", "Sales", 3000),
@@ -34,7 +37,7 @@ df.show(truncate=False)
 #  |        Kumar| Marketing|  2000|
 #  |         Saif|     Sales|  4100|
 #  +-------------+----------+------+
-#  Now let’s see how to aggregate data in PySpark.
+#  Now letâ€™s see how to aggregate data in PySpark.
 #  
 #  approx_count_distinct Aggregate Function
 #  In PySpark approx_count_distinct() function returns the count of distinct items in a group.

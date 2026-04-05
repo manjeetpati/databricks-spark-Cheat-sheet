@@ -1,20 +1,23 @@
+﻿# Databricks notebook source
+
+# COMMAND ----------
 
 from pyspark.sql import SparkSession
 spark = SparkSession.builder.appName('SparkByExamples.com').getOrCreate()
 
 data = ["Project",
-"Gutenberg’s",
-"Alice’s",
+"Gutenbergâ€™s",
+"Aliceâ€™s",
 "Adventures",
 "in",
 "Wonderland",
 "Project",
-"Gutenberg’s",
+"Gutenbergâ€™s",
 "Adventures",
 "in",
 "Wonderland",
 "Project",
-"Gutenberg’s"]
+"Gutenbergâ€™s"]
 
 rdd=spark.sparkContext.parallelize(data)
 

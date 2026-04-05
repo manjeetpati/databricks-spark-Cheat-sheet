@@ -1,18 +1,21 @@
+﻿# Databricks notebook source
+
+# COMMAND ----------
 # PySpark JSON functions are used to query or extract the elements from JSON string of DataFrame column by path, convert it to struct, mapt type e.t.c, In this article, I will explain the most used JSON SQL functions with Python examples.
 # 
 # 1. PySpark JSON Functions
-# from_json() – Converts JSON string into Struct type or Map type.
+# from_json() â€“ Converts JSON string into Struct type or Map type.
 # 
-# to_json() – Converts MapType or Struct type to JSON string.
+# to_json() â€“ Converts MapType or Struct type to JSON string.
 # 
-# json_tuple() – Extract the Data from JSON and create them as a new columns.
+# json_tuple() â€“ Extract the Data from JSON and create them as a new columns.
 # 
-# get_json_object() – Extracts JSON element from a JSON string based on json path specified.
+# get_json_object() â€“ Extracts JSON element from a JSON string based on json path specified.
 # 
-# schema_of_json() – Create schema string from JSON string
+# schema_of_json() â€“ Create schema string from JSON string
 # 
 # 1.1. Create DataFrame with Column contains JSON String
-# In order to explain these JSON functions first, let’s create DataFrame with a column contains JSON string.
+# In order to explain these JSON functions first, letâ€™s create DataFrame with a column contains JSON string.
 
 
 from pyspark.sql import SparkSession,Row

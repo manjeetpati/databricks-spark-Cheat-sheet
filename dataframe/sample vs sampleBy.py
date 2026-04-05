@@ -1,3 +1,6 @@
+﻿# Databricks notebook source
+
+# COMMAND ----------
 # 1. PySpark SQL sample() Usage & Examples
 # PySpark sampling (pyspark.sql.DataFrame.sample()) is a mechanism to get random sample records from the dataset, this is helpful when you have a larger dataset and wanted to analyze/test a subset of the data for example 10% of the original file.
 # 
@@ -5,13 +8,13 @@
 # 
 # 
 # sample(withReplacement, fraction, seed=None)
-# fraction – Fraction of rows to generate, range [0.0, 1.0]. Note that it doesn’t guarantee to provide the exact number of the fraction of records.
+# fraction â€“ Fraction of rows to generate, range [0.0, 1.0]. Note that it doesnâ€™t guarantee to provide the exact number of the fraction of records.
 # 
-# seed – Seed for sampling (default a random seed). Used to reproduce the same random sampling.
+# seed â€“ Seed for sampling (default a random seed). Used to reproduce the same random sampling.
 # 
-# withReplacement – Sample with replacement or not (default False).
+# withReplacement â€“ Sample with replacement or not (default False).
 # 
-# Let’s see some examples.
+# Letâ€™s see some examples.
 # 
 # 1.1 Using fraction to get a random sample in PySpark
 # By using fraction between 0 to 1, it returns the approximate number of the fraction of the dataset. For example, 0.1 returns 10% of the rows. However, this does not guarantee it returns the exact 10% of the records.
@@ -28,7 +31,7 @@ spark = SparkSession.builder \
 df=spark.range(100)
 print(df.sample(0.06).collect())
 # //Output: [Row(id=0), Row(id=2), Row(id=17), Row(id=25), Row(id=26), Row(id=44), Row(id=80)]
-# My DataFrame has 100 records and I wanted to get 6% sample records which are 6 but the sample() function returned 7 records. This proves the sample function doesn’t return the exact fraction specified.
+# My DataFrame has 100 records and I wanted to get 6% sample records which are 6 but the sample() function returned 7 records. This proves the sample function doesnâ€™t return the exact fraction specified.
 # 
 # 1.2 Using seed to reproduce the same Samples in PySpark
 # Every time you run a sample() function it returns a different set of sampling records, however sometimes during the development and testing phase you may need to regenerate the same sample every time as you need to compare the results from your previous run. To get consistent same random sampling uses the same slice value for every run. Change slice value to get different results.
@@ -61,9 +64,9 @@ print(df.sample(0.3,123).collect()) // No duplicates
 
 
 sampleBy(col, fractions, seed=None)
-# col – column name from DataFrame
+# col â€“ column name from DataFrame
 # 
-# fractions – It’s Dictionary type takes key and value.
+# fractions â€“ Itâ€™s Dictionary type takes key and value.
 # 
 # sampleBy() Example
 
@@ -76,7 +79,7 @@ print(df2.sampleBy("key", {0: 0.1, 1: 0.2},0).collect())
 
 # RDD sample() Syntax & Example
 
-# PySpark RDD sample() function returns the random sampling similar to DataFrame and takes a similar types of parameters but in a different order. Since I’ve already covered the explanation of these parameters on DataFrame, I will not be repeating the explanation on RDD, If not already read I recommend reading the DataFrame section above.
+# PySpark RDD sample() function returns the random sampling similar to DataFrame and takes a similar types of parameters but in a different order. Since Iâ€™ve already covered the explanation of these parameters on DataFrame, I will not be repeating the explanation on RDD, If not already read I recommend reading the DataFrame section above.
 
 # sample() of RDD returns a new RDD by selecting random sampling. Below is a syntax.
 

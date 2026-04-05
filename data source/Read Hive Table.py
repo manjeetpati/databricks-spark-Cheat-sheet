@@ -1,3 +1,6 @@
+﻿# Databricks notebook source
+
+# COMMAND ----------
 
 from os.path import abspath
 from pyspark.sql import SparkSession

@@ -1,5 +1,8 @@
+﻿# Databricks notebook source
+
+# COMMAND ----------
 #1.1. Create DataFrame with Column contains JSON String
-#In order to explain these JSON functions first, let’s create DataFrame with a column contains JSON string.
+#In order to explain these JSON functions first, letâ€™s create DataFrame with a column contains JSON string.
 #
 
 from pyspark.sql import SparkSession,Row

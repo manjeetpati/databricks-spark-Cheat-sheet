@@ -1,3 +1,6 @@
+﻿# Databricks notebook source
+
+# COMMAND ----------
 # 1. Create PySpark MapType
 # In order to use MapType data type first, you need to import it from pyspark.sql.types.MapType and use MapType() constructor to create a map object.
 
@@ -9,10 +12,10 @@ MapType Key Points:
 # The First param keyType is used to specify the type of the key in the map.
 # The Second param valueType is used to specify the type of the value in the map.
 # Third parm valueContainsNull is an optional boolean type that is used to specify if the value of the second param can accept Null/None values.
-# The key of the map won’t accept None/Null values.
+# The key of the map wonâ€™t accept None/Null values.
 # PySpark provides several SQL functions to work with MapType.
 # 2. Create MapType From StructType
-# Let’s see how to create a MapType by using PySpark StructType & StructField, StructType() constructor takes list of StructField, StructField takes a fieldname and type of the value.
+# Letâ€™s see how to create a MapType by using PySpark StructType & StructField, StructType() constructor takes list of StructField, StructField takes a fieldname and type of the value.
 
 
 from pyspark.sql.types import StructField, StructType, StringType, MapType
@@ -20,7 +23,7 @@ schema = StructType([
     StructField('name', StringType(), True),
     StructField('properties', MapType(StringType(),StringType()),True)
 ])
-Now let’s create a DataFrame by using above StructType schema.
+Now letâ€™s create a DataFrame by using above StructType schema.
 
 
 from pyspark.sql import SparkSession
@@ -54,7 +57,7 @@ df.printSchema() yields the Schema and df.show() yields the DataFrame output.
 # |Jefferson |[eye -> , hair -> brown]     |
 # +----------+-----------------------------+
 # 3. Access PySpark MapType Elements
-# Let’s see how to extract the key and values from the PySpark DataFrame Dictionary column. Here I have used PySpark map transformation to read the values of properties (MapType column)
+# Letâ€™s see how to extract the key and values from the PySpark DataFrame Dictionary column. Here I have used PySpark map transformation to read the values of properties (MapType column)
 
 
 df3=df.rdd.map(lambda x: \
@@ -77,7 +80,7 @@ df3.show()
 # |Washington| grey| grey|
 # | Jefferson|brown|     |
 # +----------+-----+-----+
-# Let’s use another way to get the value of a key from Map using getItem() of Column type, this method takes a key as an argument and returns a value.
+# Letâ€™s use another way to get the value of a key from Map using getItem() of Column type, this method takes a key as an argument and returns a value.
 
 
 df.withColumn("hair",df.properties.getItem("hair")) \
@@ -92,7 +95,7 @@ df.withColumn("hair",df.properties["hair"]) \
 # 4. Functions
 # Below are some of the MapType Functions with examples.
 # 
-# 4.1 – explode
+# 4.1 â€“ explode
 
 from pyspark.sql.functions import explode
 df.select(df.name,explode(df.properties)).show()
@@ -111,7 +114,7 @@ df.select(df.name,explode(df.properties)).show()
 # | Jefferson| eye|     |
 # | Jefferson|hair|brown|
 # +----------+----+-----+
-# 4.2 map_keys() – Get All Map Keys
+# 4.2 map_keys() â€“ Get All Map Keys
 
 from pyspark.sql.functions import map_keys
 df.select(df.name,map_keys(df.properties)).show()
@@ -133,7 +136,7 @@ keysDF = df.select(explode(map_keys(df.properties))).distinct()
 keysList = keysDF.rdd.map(lambda x:x[0]).collect()
 print(keysList)
 #['eye', 'hair']
-# 4.3 map_values() – Get All map Values
+# 4.3 map_values() â€“ Get All map Values
 
 from pyspark.sql.functions import map_values
 df.select(df.name,map_values(df.properties)).show()

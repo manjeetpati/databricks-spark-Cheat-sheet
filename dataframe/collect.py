@@ -1,3 +1,6 @@
+﻿# Databricks notebook source
+
+# COMMAND ----------
 
 import pyspark
 from pyspark.sql import SparkSession
@@ -47,7 +50,7 @@ for row in dataCollect:
 deptDF.collect()[0][0]
 
 
-# # Let’s understand what’s happening on above statement.
+# # Letâ€™s understand whatâ€™s happening on above statement.
 # # 
 # # deptDF.collect() returns Array of Row type.
 # # deptDF.collect()[0] returns the first element in an array (1st row).

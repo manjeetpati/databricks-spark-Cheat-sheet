@@ -1,9 +1,12 @@
+﻿# Databricks notebook source
+
+# COMMAND ----------
 # 1. PySpark DataFrame filter() Syntax
 # Below is syntax of the filter function. condition would be an expression you wanted to filter.
 
 
 # filter(condition)
-# Before we start with examples, first let’s create a DataFrame. Here, I am using a DataFrame with StructType and ArrayType columns as I will also be covering examples with struct and array types as-well.
+# Before we start with examples, first letâ€™s create a DataFrame. Here, I am using a DataFrame with StructType and ArrayType columns as I will also be covering examples with struct and array types as-well.
 
 
 from pyspark.sql.types import StructType,StructField 
@@ -107,7 +110,7 @@ df.filter( (df.state  == "OH") & (df.gender  == "M") ) \
 # |[Mike, Mary, Williams]|[Python, VB]      |OH   |M     |
 # +----------------------+------------------+-----+------+
 # 5. Filter Based on List Values
-# If you have a list of elements and you wanted to filter that is not in the list or in the list, use isin() function of Column class and it doesn’t have isnotin() function but you do the same using not operator (~)
+# If you have a list of elements and you wanted to filter that is not in the list or in the list, use isin() function of Column class and it doesnâ€™t have isnotin() function but you do the same using not operator (~)
 
 
 #Filter IS IN List values

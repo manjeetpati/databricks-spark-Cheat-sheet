@@ -1,3 +1,6 @@
+﻿# Databricks notebook source
+
+# COMMAND ----------
 
 from pyspark.sql.functions import sum, col, desc
 df.groupBy("state") \

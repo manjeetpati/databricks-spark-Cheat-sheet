@@ -1,3 +1,6 @@
+﻿# Databricks notebook source
+
+# COMMAND ----------
 # 1. Read JDBC in Parallel
 # I will use the PySpark jdbc() method and option numPartitions to read this table in parallel into DataFrame. This property also determines the maximum number of concurrent JDBC connections to use. The below example creates the DataFrame with 5 partitions.
 
@@ -35,7 +38,7 @@ df = spark.read \
     .option("user", "root") \
     .option("password", "root") \
     .load()
-# You can also select the specific columns with where condition by using the pyspark jdbc query option to read in parallel. Note that you can use either dbtable or query option but not both at a time. Also, when using the query option, you can’t use partitionColumn option.
+# You can also select the specific columns with where condition by using the pyspark jdbc query option to read in parallel. Note that you can use either dbtable or query option but not both at a time. Also, when using the query option, you canâ€™t use partitionColumn option.
 
 
 # Select columns with where clause

@@ -1,4 +1,4 @@
-﻿# Databricks notebook source
+﻿# Databricks notebook source 
 
 # COMMAND ----------
 # PySpark Aggregate Functions Examples

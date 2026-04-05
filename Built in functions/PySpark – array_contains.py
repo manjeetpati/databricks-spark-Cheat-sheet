@@ -44,7 +44,7 @@ df.show()
 #|Robert,,Williams|      [CSharp, VB]|[Spark, Python]|          UT|           NV|
 #+----------------+------------------+---------------+------------+-------------+
 
-
+# COMMAND ----------
 
 
 from pyspark.sql.functions import explode

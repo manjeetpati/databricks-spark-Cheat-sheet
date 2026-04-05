@@ -1,6 +1,7 @@
 # Databricks notebook source
 
-# COMMAND ----------
+
+
 from pyspark.sql.types import StringType, ArrayType
 arrayCol = ArrayType(StringType(),False)
 
@@ -42,7 +43,7 @@ df.show()
 #|Robert,,Williams|      [CSharp, VB]|[Spark, Python]|          UT|           NV|
 #+----------------+------------------+---------------+------------+-------------+
 
-
+# COMMAND ----------
 
 
 from pyspark.sql.functions import explode
